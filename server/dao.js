@@ -32,8 +32,8 @@ const getUser = async function(id){
 
 //fetch comments by employee_id
 const getCommentsByEmployeeId = async function(id){
-    let db = await dbCollection();
-    let comment = await db.collection("comments").find({'user_id': id}).toArray();
+    let db = await dbConnect();
+    let comment = await db.collection("comments").find({'employee_id': id}).toArray();
     return comment;
 }
 //fetch comments by manager_id
