@@ -51,7 +51,13 @@ const getCommentsByCommentId = async function(id){
 }
 
 //put
-const putFollowupByCommentId = async function(id){
+const putFollowupByCommentId = async function(id, message){
+let db = await dbConnect();
+await db.collection('comments').update(
+    {"comment_id": id},
+    {"$push": {"followups": {message}}}
+);
 
+ 
 }
 module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentsByCommentId }
