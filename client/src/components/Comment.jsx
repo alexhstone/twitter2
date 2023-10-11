@@ -6,8 +6,7 @@ const Comment = ({comment}) => {
     return (
         <div className="comment">
             <p>{comment?.comment}</p>
-            {//comment?.followups.map(p => <p>{p}</p>)
-            }
+            {comment.followups && comment.followups.map((p, i) => <p key={`${p}${i}`}>{p}</p>)}
             <button>respond</button>
         </div>
     )
