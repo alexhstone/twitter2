@@ -1,5 +1,6 @@
 [{
     "employee_id": "zzz9969",
     "manager_id":"zzz9999", 
-    "comment": "my manager is always knocking things off my desk..."
+    "comment": "my manager is always knocking things off my desk...",
+    "followups": ["meow"]
 }]
