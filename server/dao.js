@@ -42,4 +42,4 @@ const getCommentsByManagerId = async function(id){
     let comment = await db.collection("comments").find({'manager_id': id}).toArray();
     return comment;
 }
-module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId,  }
+module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId }
