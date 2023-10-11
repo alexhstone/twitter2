@@ -1,5 +1,5 @@
 //mongodb set up and dependencies
-const { MongoClient } = require('mongodb');
+const { ObjectId, MongoClient } = require('mongodb');
 const dbUrl = "mongodb://127.0.0.1:27017";
 const dbName = "twitter2";
 
@@ -45,16 +45,18 @@ const getCommentsByManagerId = async function(id){
 
 //fetch comment by comment_id
 const getCommentByCommentId = async function(id){
+    const mongoId = new ObjectId(id)
     let db = await dbConnect();
-    let comment = await db.collection("comments").findOne({'comment_id': id});
+    let comment = await db.collection("comments").findOne({'_id': mongoId});
     return comment;
 }
 
 //put
 const putFollowupByCommentId = async function(id, message){
+const mongoId = new ObjectId(id)
 let db = await dbConnect();
 await db.collection("comments").updateOne(
-    {"comment_id": id},
+    {"_id": ObjectId},
     {"$push": {"followups": message}});
 };
 
