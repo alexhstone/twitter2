@@ -1,0 +1,11 @@
+{
+  "name": "twitter2_server",
+  "version": "1.0.0",
+  "description": "anonymous feedback app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elijah Rodriguez and Alex Stone",
+  "license": "ISC"
+}
