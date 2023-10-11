@@ -61,10 +61,30 @@ app.get('/api/comments/:id', async (req, res) => {
 
 //put "followup" onto comment by comment_id
 app.put('/api/comments/:id', async (req, res) => {
-
-    await dao.putFollowupByCommentId(req.params.id, req.body)
+   
+    const message = req.body.message
+    await dao.putFollowupByCommentId(req.params.id, message)
 
     res.sendStatus(204)
+})
+
+//post a new comment
+app.post('/api/comments', async (req, res) => {
+    
+    //create a comment object using body of our request
+    let comment = {comment : req.body.comment,
+                    employee_id : req.body.user_id}
+
+    //grab user from db to get manager_id...
+    let user = await dao.getUser(req.body.user_id)
+    
+    //append manager_id
+    comment.manager_id = user.manager_id;
+
+    //do magic in db...
+    await dao.postComment(comment)
+    //profit
+    res.sendStatus(201)
 })
 
 app.listen(port);

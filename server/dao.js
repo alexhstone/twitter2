@@ -44,20 +44,20 @@ const getCommentsByManagerId = async function(id){
 }
 
 //fetch comment by comment_id
-const getCommentsByCommentId = async function(id){
+const getCommentByCommentId = async function(id){
     let db = await dbConnect();
-    let comment = await db.collection("comments").find({'comment_id': id}).toArray();
+    let comment = await db.collection("comments").findOne({'comment_id': id});
     return comment;
 }
 
 //put
 const putFollowupByCommentId = async function(id, message){
 let db = await dbConnect();
-await db.collection('comments').update(
+await db.collection("comments").updateOne(
     {"comment_id": id},
-    {"$push": {"followups": {message}}}
+    {"$push": {"followups": message}}
 );
 
  
 }
-module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentsByCommentId }
+module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentByCommentId }
