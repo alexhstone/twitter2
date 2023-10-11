@@ -4,6 +4,7 @@
   "description": "anonymous feedback app",
   "main": "server.js",
   "scripts": {
+    "run": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Elijah Rodriguez and Alex Stone",
