@@ -17,17 +17,17 @@ async function dbConnect(){
 }
 
 //fetch all users
-const getAllUsers = async function(callback){
+const getAllUsers = async function(){
     let db = await dbConnect();
-    let dataPromise = db.collection("users").find({}).toArray();
-    dataPromise.then((users) => callback(users));
+    let allUsers = await db.collection("users").find({}).toArray();
+    return allUsers;
 }
 
 //fetch user by id
-const getUser = async function(id, callback){
+const getUser = async function(id){
     let db = await dbConnect();
-    let dataPromise = db.collection("users").findOne({'user_id': id});
-    dataPromise.then((users) => callback(users));
+    let user = await db.collection("users").findOne({'user_id': id});
+    return user;
 }
 
 module.exports = { getAllUsers, getUser }
