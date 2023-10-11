@@ -53,5 +53,18 @@ app.get('/api/comments/manager/:id', async (req, res) =>  {
     res.send(comments)
 })
 
+app.get('/api/comments/:id', async (req, res) => {
+    const comment = await dao.getCommentByCommentId(req.params.id)
+
+    res.send(comment)
+})
+
+//put "followup" onto comment by comment_id
+app.put('/api/comments/:id', async (req, res) => {
+
+    await dao.putFollowupByCommentId(req.params)
+
+    res.sendStatus(204)
+})
 
 app.listen(port);
