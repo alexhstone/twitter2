@@ -1,1 +1,2 @@
-#to-do, write script to initialize database...
+mongoimport --uri mongodb://localhost:27017/twitter2 --collection users --drop --file c:/twitter2/server/database/data/users.json --jsonArray
+mongoimport --uri mongodb://localhost:27017/twitter2 --collection comments --drop --file c:/twitter2/server/database/data/comments.json --jsonArray

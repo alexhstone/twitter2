@@ -1,0 +1,27 @@
+[{
+   "user_id": "zzz9999",
+   "user_name": "jeff",
+   "password": "salmon",
+    "manager_id": "zzz9989"
+},
+{
+    "user_id": "zzz9989",
+    "user_name": "willow",
+    "password": "tuna",
+    "manager_id": "zzz9399"
+    
+ },
+ {
+    "user_id": "zzz9399",
+    "user_name": "bossman",
+    "password": "password",
+    "manager_id":"-1" 
+    
+ },
+ {
+    "user_id": "zzz9969",
+    "user_name": "user2",
+    "password": "password",
+    "is_manager": "false"
+ }
+]
