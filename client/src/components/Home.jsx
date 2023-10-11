@@ -10,12 +10,17 @@ const fetchComments = async (id) => {
 
 const Home = () => {
     
-    const [comments, setComments] = useState([]);
+    const [employeeComments, setEmployeeComments] = useState([]);
+    const [managerComments, setManagerComments] = useState([]);
     
     const fetchComments = async (id) => {
         await fetch(`http://localhost:3030/api/comments/employee/${id}`)
         .then(res => res.json())
-        .then(comments => setComments(comments))
+        .then(comments => setEmployeeComments(comments))
+
+        await fetch(`http://localhost:3030/api/comments/manager/${id}`)
+        .then(res => res.json())
+        .then(comments => setManagerComments(comments))
     }
 
     useEffect(() => { 
@@ -26,7 +31,11 @@ const Home = () => {
         <div>
            <div>
             <h2>Comments FROM me</h2>
-            {comments.length && comments.map(comment => <Comment comment={comment} key={comment?._id} />)}
+            {employeeComments.length && employeeComments.map(comment => <Comment comment={comment} key={comment?._id} />)}
+           </div>
+           <div>
+            <h2>Comments TO me</h2>
+            {managerComments.length && managerComments.map(comment => <Comment comment={comment} key={comment?._id} />)}
            </div>
         </div>
     )
