@@ -55,9 +55,11 @@ const putFollowupByCommentId = async function(id, message){
 let db = await dbConnect();
 await db.collection("comments").updateOne(
     {"comment_id": id},
-    {"$push": {"followups": message}}
-);
+    {"$push": {"followups": message}});
+};
 
- 
-}
-module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentByCommentId }
+const postComment = async function(comment){
+    let db = await dbConnect();
+    await db.collection("comments").insertOne(comment)
+};
+module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentByCommentId, postComment }
