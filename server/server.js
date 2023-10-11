@@ -62,7 +62,7 @@ app.get('/api/comments/:id', async (req, res) => {
 //put "followup" onto comment by comment_id
 app.put('/api/comments/:id', async (req, res) => {
 
-    await dao.putFollowupByCommentId(req.params)
+    await dao.putFollowupByCommentId(req.params.id, req.body)
 
     res.sendStatus(204)
 })
