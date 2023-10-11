@@ -30,4 +30,16 @@ const getUser = async function(id){
     return user;
 }
 
-module.exports = { getAllUsers, getUser }
+//fetch comments by employee_id
+const getCommentsByEmployeeId = async function(id){
+    let db = await dbCollection();
+    let comment = await db.collection("comments").find({'user_id': id}).toArray();
+    return comment;
+}
+//fetch comments by manager_id
+const getCommentsByManagerId = async function(id){
+    let db = await dbConnect();
+    let comment = await db.collection("comments").find({'manager_id': id}).toArray();
+    return comment;
+}
+module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId,  }
