@@ -1,41 +1,39 @@
 .container {
-    display: grid;
-    height: 100vh;
-    gap: 1.5rem;
-    grid-template-rows: 15vh 85vh;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "newComment newComment"
-    "employeeComments managerComments";
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
+
+
 
 .newComment {
-    grid-area: newComment;
     border: 1px solid lightgray;
-    border-radius: 7px;
+
+    
+    height: 20%;
     background-color: rgb(23, 7, 86);
-    margin: auto;
+    margin: 0rem auto 1rem auto;
+    width: 100%;
+    
+    padding: 1rem;
+}
+
+#filter {
+    width: 60%;
+    margin: .5rem auto;
+}
+
+.comments{
     width: 75%;
-}
-
-.newComment input {
-    margin-bottom: 10px;
-}
-
-.employeeComments {
-    grid-area: employeeComments;
-    height: 85vh;
+    height: 100%;
     margin: auto;
-}
 
-.managerComments {
-    grid-area: managerComments;
-    height: 85vh;
-    margin: auto; 
 }
 
 .commentContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     overflow: auto;
     height: 100%;
+    width: 95%;
 }

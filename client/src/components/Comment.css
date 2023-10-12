@@ -5,9 +5,23 @@
     color: whitesmoke;
     width: 90%;
     margin: 1rem auto;
+    padding: 1rem;
     
 }
 
+h3 {
+    color: lightskyblue;
+    margin: auto;
+}
+
 .followups {
-    
+    color: pink;
+}
+
+.good {
+    border: 3px solid green;
+}
+
+.bad {
+    border: 3px solid red;
 }

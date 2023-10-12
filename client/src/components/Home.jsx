@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react';
-import Comment from './Comment';
+import Comments from './Comments';
 import './Home.css';
 
 
@@ -10,6 +10,7 @@ const Home = () => {
     const [employeeComments, setEmployeeComments] = useState([]);
     const [managerComments, setManagerComments] = useState([]);
     const [newComment, setNewComment] = useState("");
+    const [filter, setFilter] = useState("employee");
 
     const postNewComment = async () => {
         //submit our message...
@@ -43,27 +44,29 @@ const Home = () => {
     useEffect(() => { 
         fetchComments()
     },[])
+    const handleSelect = (e) => {
+        setFilter(e.target.value)
+    }
 
     return (
+        
         <div className="container">
+            {console.log(filter)}
             <div className="newComment">
                 <h1>Twitter 2</h1>
                 <h2>Submit a new comment</h2>
-                <input type="text" name="comment" id="comment" onChange={setNewComment} />
-                <button onClick={postNewComment}>submit!</button>
+                <div className="input">
+                    <input type="text" name="comment" id="comment" onChange={setNewComment} />
+                    <button onClick={postNewComment}>submit!</button>
+                </div>
             </div>
-           <div className="employeeComments">
-            <h2>Comments FROM me</h2>
-            <div className="commentContainer">
-                {employeeComments.length && employeeComments.map(comment => <Comment comment={comment} key={comment?._id} sync={fetchComments} />)}
+            <select name="filter" id="filter" onChange={e => handleSelect(e)}>
+                <option value="employee">comments left by me</option>
+                <option value="manager">comments about me</option>
+            </select>
+            <div className="comments">
+                <Comments comments={filter == "employee" ? employeeComments : managerComments} sync={fetchComments} />
             </div>
-           </div>
-           <div className="managerComments">
-            <h2>Comments TO me</h2>
-            <div className="commentContainer">
-                {managerComments.length && managerComments.map(comment => <Comment comment={comment} key={comment?._id} sync={fetchComments} />)}
-            </div>
-           </div>
         </div>
     )
 }
