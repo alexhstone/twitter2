@@ -62,6 +62,6 @@ await db.collection("comments").updateOne(
 
 const postComment = async function(comment){
     let db = await dbConnect();
-    await db.collection("comments").insertOne(comment)
+    await db.collection("comments").insertOne(comment);
 };
-module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentByCommentId, postComment }
+module.exports = { getAllUsers, getUser, getCommentsByEmployeeId, getCommentsByManagerId, putFollowupByCommentId, getCommentByCommentId, postComment}
