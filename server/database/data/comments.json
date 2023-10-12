@@ -1,14 +1,23 @@
 [{
-    "comment_id": "999",
     "employee_id": "zzz9969",
     "manager_id":"zzz9999", 
-    "comment": "my manager is always knocking things off my desk...",
-    "followups": ["meow"]
+    "comment": "This person is doing a great job and demonstrates strong leadership"
 },
 {
-    "comment_id": "1111",
+
     "employee_id": "zzz0099",
     "manager_id": "zzz9969",
-    "comment": "he is stinky"
+    "comment": "My manager is the best!"
+},
+{
+    "employee_id": "zzz0099",
+    "manager_id": "zzz9969",
+    "comment": "He's not too bad at CSS..."
+},
+{
+    "employee_id": "zzz0099",
+    "manager_id": "zzz9969",
+    "comment": "Sometimes demonstrates favoritism toward employees with cats"
 }
+
 ]

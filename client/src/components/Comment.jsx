@@ -9,14 +9,14 @@ const Comment = ({comment, sync}) => {
     let [sentiment, setSentiment] = useState("");
 
     const getSentiment = async () => {
-        fetch('http://localhost:4000/api/sentiment', {
+        fetch('http://localhost:3030/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
                { message : comment.comment,
-                }).then(res => res.json())
-                .then(sentiment => console.log(sentiment))
-        })
+                })
+        }).then(res => res.json())
+        .then(sentiment => console.log(sentiment))
 
     }
 
@@ -47,6 +47,7 @@ const Comment = ({comment, sync}) => {
             </div>
                 <input id={comment._id} type="text" onChange={setMessage} />
                 <button onClick={submitFollowup}>respond</button>
+                <button onClick={getSentiment}>(Experimental) Analyze Content</button>
         </div>
     )
 }

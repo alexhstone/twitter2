@@ -3,6 +3,7 @@ const express = require('express');
 const port = 3030;
 const app = express();
 const cors = require('cors');
+const { spawn } = require('child_process');
 
 //importing data access object
 const dao = require('./dao');
@@ -86,5 +87,46 @@ app.post('/api/comments', async (req, res) => {
     //profit
     res.sendStatus(201)
 })
+
+app.post('/predict', (req, res) => {
+    const input = req.body;
+    const message = req.body.message;
+    
+   
+    // Spawn a child process to execute the predict.py script
+    // The Python binary name might be different on your machine. Just "python" for example.
+    const pythonScript = spawn('python', ['sentiment_analyzer.py']);
+
+    // Send the data to the predict.py script via stdin
+    pythonScript.stdin.write(message);
+    pythonScript.stdin.end();
+
+    let predictionData = '';
+
+    // Collect the predicted data from stdout of the predict.py script
+    pythonScript.stdout.on('data', (data) => {
+        predictionData += data.toString();
+    });
+
+    //our python script isn't closing :( 
+    // Handle the completion of the predict.py script
+    pythonScript.on('close', (code) => {
+        if (code === 0) {
+            // Parse the predicted data
+            const predictions = predictionData.toArray();
+            console.log({predictions});
+
+            // Return the predictions as the response
+            res.send(predictions);
+        } else {
+            // Return an error response
+            res.status(500).json({ error: 'Prediction failed' });
+        }
+    });
+});
+
+
+
+
 
 app.listen(port);
