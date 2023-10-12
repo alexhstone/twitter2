@@ -1,4 +1,5 @@
 import {React, useState, useEffect} from 'react';
+import './Comment.css';
 
 
 
@@ -8,7 +9,6 @@ const Comment = ({comment, sync}) => {
 
     const submitFollowup = async () => {
         //submit our message...
-        console.log(comment)
         await fetch(`http://localhost:3030/api/comments/${comment?._id}`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
@@ -24,11 +24,10 @@ const Comment = ({comment, sync}) => {
 
     return (
         <div className="comment">
-            <p>{comment?._id}</p>
-            <p>{comment?.comment}</p>
-            {comment.followups && comment.followups.map((p, i) => <p key={`${p}${i}`}>{p}</p>)}
-            <div id="message">
-
+            <h3>{comment?.comment}</h3>
+            <h4>response:</h4>
+            <div class="followups">
+                {comment.followups && comment.followups.map((p, i) => <p key={`${p}${i}`}>{p}</p>)}
             </div>
                 <input id={comment._id} type="text" onChange={setMessage} />
                 <button onClick={submitFollowup}>respond</button>

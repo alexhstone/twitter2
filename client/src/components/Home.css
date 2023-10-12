@@ -1,0 +1,41 @@
+.container {
+    display: grid;
+    height: 100vh;
+    gap: 1.5rem;
+    grid-template-rows: 15vh 85vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "newComment newComment"
+    "employeeComments managerComments";
+}
+
+.newComment {
+    grid-area: newComment;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    background-color: rgb(23, 7, 86);
+    margin: auto;
+    width: 75%;
+}
+
+.newComment input {
+    margin-bottom: 10px;
+}
+
+.employeeComments {
+    grid-area: employeeComments;
+    height: 85vh;
+    margin: auto;
+}
+
+.managerComments {
+    grid-area: managerComments;
+    height: 85vh;
+    margin: auto; 
+}
+
+.commentContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+}
