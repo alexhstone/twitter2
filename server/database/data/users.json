@@ -22,6 +22,6 @@
     "user_id": "zzz9969",
     "user_name": "user2",
     "password": "password",
-    "is_manager": "false"
+    "manager_id": "zzz9399"
  }
 ]

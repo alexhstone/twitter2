@@ -56,7 +56,7 @@ const putFollowupByCommentId = async function(id, message){
 const mongoId = new ObjectId(id)
 let db = await dbConnect();
 await db.collection("comments").updateOne(
-    {"_id": ObjectId},
+    {"_id": mongoId},
     {"$push": {"followups": message}});
 };
 
