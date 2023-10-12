@@ -113,11 +113,11 @@ app.post('/predict', (req, res) => {
     pythonScript.on('close', (code) => {
         if (code === 0) {
             // Parse the predicted data
-            const predictions = predictionData.toArray();
+            const predictions = predictionData;
             console.log({predictions});
 
             // Return the predictions as the response
-            res.send(predictions);
+            res.send({predictions});
         } else {
             // Return an error response
             res.status(500).json({ error: 'Prediction failed' });

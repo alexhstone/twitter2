@@ -1,6 +1,15 @@
-.App {
-  text-align: center;
-  height: 100%;
-  margin: 0;
+:root {
+
+  --text: #f7f8fd;
+  --background: #070e22;
+  --primary: #4d71db;
+  --secondary: #0a132f;
+  --accent: #3059d5;
+
+  color: var(--text);
+  background-color: var(--background);
 }
 
+.App {
+  margin: 0;
+}

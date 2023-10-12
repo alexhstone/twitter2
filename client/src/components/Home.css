@@ -1,39 +1,33 @@
-.container {
+.Home {
+padding-top: 75px;
+
+
+ & h1 {
     margin: 0;
-    height: 100%;
-    width: 100%;
-}
+ }
 
 
-
-.newComment {
-    border: 1px solid lightgray;
-
-    
-    height: 20%;
-    background-color: rgb(23, 7, 86);
+& .newComment {
+    display: flex;
+    border: 1px solid var(--accent);
+    background-color: var(--primary);
     margin: 0rem auto 1rem auto;
-    width: 100%;
+    align-items: center;
+    justify-content: space-between;
     
-    padding: 1rem;
 }
 
-#filter {
+& #filter {
     width: 60%;
     margin: .5rem auto;
 }
 
-.comments{
-    width: 75%;
-    height: 100%;
-    margin: auto;
-
+& header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
-.commentContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    overflow: auto;
-    height: 100%;
-    width: 95%;
+
 }

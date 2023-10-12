@@ -7,7 +7,7 @@ const Comments = ({comments, sync}) => {
 
     return (
         
-            <div className="commentContainer">
+            <div className="Comments">
                 {comments.length && comments.map(comment => <Comment comment={comment} key={comment?._id} sync={sync} />)}
             </div>
            

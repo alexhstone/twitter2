@@ -9,18 +9,24 @@ const Comment = ({comment, sync}) => {
     let [sentiment, setSentiment] = useState("");
 
     const getSentiment = async () => {
-        fetch('http://localhost:3030/predict', {
+       let data = ' '
+       await fetch('http://localhost:3030/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
                { message : comment.comment,
                 })
         }).then(res => res.json())
-        .then(sentiment => console.log(sentiment))
+        .then(sentiment => data = sentiment.predictions)
+        console.log(data, typeof(data))
+        
+        if (data === "['negative']\r\n"){
+            setSentiment("bad")
+        } else setSentiment("good")
 
     }
 
-    //useEffect(getSentiment[]);
+    useEffect(() => {getSentiment()},[]);
 
 
     const submitFollowup = async () => {
@@ -39,7 +45,7 @@ const Comment = ({comment, sync}) => {
     }
 
     return (
-        <div className="comment">
+        <div className={"comment " + sentiment}>
             <h3>{comment?.comment}</h3>
             {comment.followups && <h4>response:</h4>}
             <div className="followups">
@@ -47,7 +53,6 @@ const Comment = ({comment, sync}) => {
             </div>
                 <input id={comment._id} type="text" onChange={setMessage} />
                 <button onClick={submitFollowup}>respond</button>
-                <button onClick={getSentiment}>(Experimental) Analyze Content</button>
         </div>
     )
 }

@@ -50,23 +50,24 @@ const Home = () => {
 
     return (
         
-        <div className="container">
-            {console.log(filter)}
-            <div className="newComment">
+        <div class="Home">
+          
+            <header className="newComment">
                 <h1>Twitter 2</h1>
                 <h2>Submit a new comment</h2>
                 <div className="input">
                     <input type="text" name="comment" id="comment" onChange={setNewComment} />
                     <button onClick={postNewComment}>submit!</button>
                 </div>
-            </div>
+            </header>
+            <main>
             <select name="filter" id="filter" onChange={e => handleSelect(e)}>
                 <option value="employee">comments left by me</option>
                 <option value="manager">comments about me</option>
             </select>
-            <div className="comments">
+           
                 <Comments comments={filter == "employee" ? employeeComments : managerComments} sync={fetchComments} />
-            </div>
+            </main>
         </div>
     )
 }

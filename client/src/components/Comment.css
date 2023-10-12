@@ -1,8 +1,7 @@
 .comment {
-    border: 1px solid lightgrey;
+    border: 1px solid var(--accent);
     border-radius: 10px;
-    background-color: rgb(23, 7, 86);
-    color: whitesmoke;
+    background-color: var(--primary);
     width: 90%;
     margin: 1rem auto;
     padding: 1rem;
@@ -10,18 +9,22 @@
 }
 
 h3 {
-    color: lightskyblue;
+
     margin: auto;
 }
 
 .followups {
-    color: pink;
+    color: var(--secondary)
 }
 
 .good {
-    border: 3px solid green;
+    
+    -webkit-box-shadow: 2px 3px 19px -2px rgb(162, 248, 162); 
+    box-shadow: 2px 3px 19px -2px rgb(162, 248, 162);
 }
 
 .bad {
-    border: 3px solid red;
+    
+    -webkit-box-shadow: 2px 3px 19px -2px rgb(235, 107, 107); 
+    box-shadow: 2px 3px 19px -2px rgb(235, 107, 107);
 }
