@@ -5,6 +5,8 @@
   --primary: #4d71db;
   --secondary: #0a132f;
   --accent: #3059d5;
+  --red: rgb(235, 107, 107);
+  --green: rgb(162, 248, 162);
 
   color: var(--text);
   background-color: var(--background);
@@ -12,4 +14,12 @@
 
 .App {
   margin: 0;
+}
+
+button {
+  cursor: hand;
+  background-color: var(--secondary);
+  color: var(--text);
+  margin-left: 1px;
+  border-radius: 3px;
 }

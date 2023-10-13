@@ -12,12 +12,17 @@
 {
     "employee_id": "zzz0099",
     "manager_id": "zzz9969",
-    "comment": "He's not too bad at CSS..."
+    "comment": "Brilliant engineer!"
 },
 {
     "employee_id": "zzz0099",
     "manager_id": "zzz9969",
     "comment": "Sometimes demonstrates favoritism toward employees with cats"
+},
+{
+    "employee_id": "zzz9969",
+    "manager_id": "zzz9969",
+    "comment": "Comments can invite a conversation"
 }
 
 ]

@@ -46,13 +46,19 @@ const Comment = ({comment, sync}) => {
 
     return (
         <div className={"comment " + sentiment}>
-            <h3>{comment?.comment}</h3>
-            {comment.followups && <h4>response:</h4>}
-            <div className="followups">
-                {comment.followups && comment.followups.map((p, i) => <p key={`${p}${i}`}>{p}</p>)}
+            <div className="body">
+                <h3>{comment?.comment}</h3>
+                 {comment.followups && <h4>response:</h4>}
+                <div className="followups">
+                    {comment.followups && comment.followups.map((p, i) => <p key={`${p}${i}`}>{p}</p>)}
+                </div>
+                    <input id={comment._id} type="text" onChange={setMessage} />
+                    <button onClick={submitFollowup}>respond</button>
             </div>
-                <input id={comment._id} type="text" onChange={setMessage} />
-                <button onClick={submitFollowup}>respond</button>
+            <div className="sentiment">
+               
+                {sentiment && <p>sentiment: {sentiment}</p>}
+            </div>
         </div>
     )
 }

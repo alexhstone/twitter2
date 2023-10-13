@@ -6,6 +6,11 @@ padding-top: 75px;
     margin: 0;
  }
 
+ & label {
+    font-weight: 500;
+    margin-right: 8px;
+ }
+
 
 & .newComment {
     display: flex;
@@ -13,13 +18,14 @@ padding-top: 75px;
     background-color: var(--primary);
     margin: 0rem auto 1rem auto;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     
 }
 
 & #filter {
-    width: 60%;
-    margin: .5rem auto;
+    width: 50%;
+    text-align: center;
+
 }
 
 & header {

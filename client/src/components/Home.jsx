@@ -53,9 +53,11 @@ const Home = () => {
         <div class="Home">
           
             <header className="newComment">
+                
                 <h1>Twitter 2</h1>
-                <h2>Submit a new comment</h2>
+                
                 <div className="input">
+                    <label for="comment">Submit a new comment</label>
                     <input type="text" name="comment" id="comment" onChange={setNewComment} />
                     <button onClick={postNewComment}>submit!</button>
                 </div>

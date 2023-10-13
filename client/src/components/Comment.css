@@ -5,12 +5,21 @@
     width: 90%;
     margin: 1rem auto;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
     
+}
+.body {
+    padding-left: 5px;
 }
 
 h3 {
 
     margin: auto;
+}
+
+.sentiment {
+    justify-self: right;
 }
 
 .followups {
@@ -19,12 +28,21 @@ h3 {
 
 .good {
     
-    -webkit-box-shadow: 2px 3px 19px -2px rgb(162, 248, 162); 
-    box-shadow: 2px 3px 19px -2px rgb(162, 248, 162);
+    -webkit-box-shadow: 2px 3px 19px -2px var(--green); 
+    box-shadow: 2px 3px 19px -2px var(--green);
+    border-bottom: 4px solid var(--green);
 }
+
+
 
 .bad {
     
-    -webkit-box-shadow: 2px 3px 19px -2px rgb(235, 107, 107); 
-    box-shadow: 2px 3px 19px -2px rgb(235, 107, 107);
+    -webkit-box-shadow: 2px 3px 19px -2px var(--red); 
+    box-shadow: 2px 3px 19px -2px var(--red);
+    border-bottom: 4px solid var(--red);
+}
+
+
+.bad .body {
+    
 }
